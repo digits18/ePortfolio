@@ -1,0 +1,842 @@
+{% extends 'layout.html' %}
+{% block content %}
+<html lang="en">
+
+
+<body class="index-page">
+
+  <header id="header" class="header d-flex flex-column">
+    <i class="header-toggle d-xl-none bi bi-list"></i>
+    <div class="profile-img">
+      <img src="{{url_for('static', filename='assets/img/ola2.jpg')}}" alt="" class="img-fluid rounded-circle">
+    </div>
+
+    <a href="{{url_for('bp.index')}}" class="logo d-flex align-items-center justify-content-center">
+      <!-- Uncomment the line below if you also wish to use an image logo -->
+      <!-- <img src="assets/img/logo.png" alt=""> -->
+      <h1 class="sitename">Oladimeji Sanni</h1>
+    </a>
+
+    <div class="social-links text-center">
+      <a href="https://x.com/MrOladimejiSann?t=lWXn574IQZdh7qqxCrLB-Q&s=09" class="twitter" target="_blank"><i class="bi bi-twitter-x"></i></a>
+      <a href="https://www.facebook.com/digitsinfotech?mibextid=ZbWKwL" class="facebook" target="_blank"><i class="bi bi-facebook"></i></a>
+      <a href="https://www.instagram.com/oladimejisanni?igsh=MWE4NjA3aHJtbnIzZg==" class="instagram" target="_blank"><i class="bi bi-instagram"></i></a>
+      <a href="https://join.skype.com/invite/F1LoUs04TOJv" class="google-plus" target="_blank"><i class="bi bi-skype"></i></a>
+      <a href="https://linkedin.com/in/oladimeji-sanni-1558ba26" class="linkedin" target="_blank"><i class="bi bi-linkedin"></i></a>
+    </div>
+
+    <nav id="navmenu" class="navmenu">
+      <ul>
+        <li><a href="#hero" class="active"><i class="bi bi-house navicon"></i>Home</a></li>
+        <li><a href="#about"><i class="bi bi-person navicon"></i> About</a></li>
+        <li><a href="#resume"><i class="bi bi-file-earmark-text navicon"></i> Resume</a></li>
+        <li><a href="#services"><i class="bi bi-hdd-stack navicon"></i> Services</a></li>
+        <li><a href="#projects"><i class="bi bi-images navicon"></i> Projects</a></li>
+        <li><a href="#testimonials"><i class="bi bi-file-earmark-text navicon"></i> Testimonials</a></li>
+<!--        <li class="dropdown"><a href="#"><i class="bi bi-menu-button navicon"></i> <span>Dropdown</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>-->
+<!--          <ul>-->
+<!--            <li><a href="#">Dropdown 1</a></li>-->
+<!--            <li class="dropdown"><a href="#"><span>Deep Dropdown</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>-->
+<!--              <ul>-->
+<!--                <li><a href="#">Deep Dropdown 1</a></li>-->
+<!--                <li><a href="#">Deep Dropdown 2</a></li>-->
+<!--                <li><a href="#">Deep Dropdown 3</a></li>-->
+<!--                <li><a href="#">Deep Dropdown 4</a></li>-->
+<!--                <li><a href="#">Deep Dropdown 5</a></li>-->
+<!--              </ul>-->
+<!--            </li>-->
+<!--            <li><a href="#">Dropdown 2</a></li>-->
+<!--            <li><a href="#">Dropdown 3</a></li>-->
+<!--            <li><a href="#">Dropdown 4</a></li>-->
+<!--          </ul>-->
+<!--        </li>-->
+        <li><a href="#contact"><i class="bi bi-envelope navicon"></i> Contact</a></li>
+      </ul>
+    </nav>
+
+  </header>
+
+  <main class="main">
+
+
+      {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+          {% for category, message in messages %}
+             {% if category == 'success' %}
+                <div class="alert alert-success bg-success text-light border-0 alert-dismissible fade show" role="alert" id="successMessage">
+                  <i class="bi-check-circle-fill"></i>
+                  {{ message }}
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+             {% endif %}
+
+              {% if category == 'error' %}
+                <div class="alert alert-danger bg-danger text-light border-0 alert-dismissible fade show" role="alert" id="errorMessage">
+                   <i class="bi-exclamation-octagon-fill"></i>
+                  {{ message }}
+                  <button type="button" class="btn-close btn-close-white" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+              {% endif %}
+          {% endfor %}
+        {% endif %}
+      {% endwith %}
+
+    <!-- Hero Section -->
+    <section id="hero" class="hero section">
+      <img src="{{url_for('static', filename='assets/img/hero-bg.jpg')}}" alt="" data-aos="fade-in" class="">
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+        <h2>Oladimeji Sanni</h2>
+        <p><span class="typed" data-typed-items="Web App Developer, Software Engineer, Mobile App Developer, Data Analyst, API Builder, FullStack Engineer, BackEnd Developer, Website Developer">Developer</span><span class="typed-cursor typed-cursor--blink" aria-hidden="true"></span><span class="typed-cursor typed-cursor--blink" aria-hidden="true"></span></p>
+      </div>
+
+    </section><!-- /Hero Section -->
+
+    <!-- Whatsapp Embedded Section -->
+    <script src="https://static.elfsight.com/platform/platform.js" async></script>
+    <div class="elfsight-app-a7768fec-87af-411c-ac11-8f7829894b6c" data-elfsight-app-lazy></div>
+
+    <!-- About Section -->
+    <section id="about" class="about section">
+
+      <!-- Section Title -->
+      <div class="container section-title" data-aos="fade-up">
+        <h2>About</h2>
+        <p>Started off career as a computer studies tutor, teaching young school children basic computer knowledge and ICT fundamentals before a complete transition to software development, web app and data analytics. My career path revolves around tech and computer driven solution for productivity. I am a Pythonista !</p>
+      </div><!-- End Section Title -->
+
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+        <div class="row gy-4 justify-content-center">
+          <div class="col-lg-4">
+            <img src="{{url_for('static', filename='assets/img/ola2.jpg')}}" class="img-fluid" alt="">
+          </div>
+          <div class="col-lg-8 content">
+            <h2>Software Engineer, Data Analyst &amp; Web App Developer.</h2>
+            <p class="fst-italic py-3">
+              I am a right choice for IT Solutions with impeccable achievements. A full-stack and software developer with proficiency in HTML/CSS, JS and Python . Highly skilled in the development of web app and desktop application with decade of experience. A reliable and dependable plug in Query Language.
+            </p>
+            <div class="row">
+              <div class="col-lg-6">
+                <ul>
+                  <li><i class="bi bi-chevron-right"></i> <strong>Birthday:</strong> <span>18 April</span></li>
+                  <li><i class="bi bi-chevron-right"></i> <strong>Website:</strong> <span>www.oladimejisanni.com</span></li>
+                  <li><i class="bi bi-chevron-right"></i> <strong>Phone:</strong> <span>+234 812 749 7918</span></li>
+                  <li><i class="bi bi-chevron-right"></i> <strong>City:</strong> <span>Lagos, Nigeria</span></li>
+                </ul>
+              </div>
+              <div class="col-lg-6">
+                <ul>
+                  <li><i class="bi bi-chevron-right"></i> <strong>Email:</strong> <span>oladimejisanni@ymail.com</span></li>
+                  <li><i class="bi bi-chevron-right"></i> <strong>Freelance:</strong> <span>Available</span></li>
+                </ul>
+              </div>
+            </div>
+            <p class="py-3">
+              Data Analytics specialist with powerful mastering of AI using NumPy and Pandas and MatplotLib for visualization. I have developed quite a number of highly sophisticated Apps for Data Analysis for wide ranges of Business Firms and Financial Companies..
+            </p>
+          </div>
+        </div>
+
+      </div>
+
+    </section><!-- /About Section -->
+
+    <!-- Stats Section -->
+    <section id="stats" class="stats section">
+
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+        <div class="row gy-4">
+
+          <div class="col-lg-3 col-md-6">
+            <div class="stats-item">
+              <i class="bi bi-emoji-smile"></i>
+              <span data-purecounter-start="0" data-purecounter-end="32" data-purecounter-duration="1" class="purecounter"></span>
+              <p><strong>Happy Clients</strong> <span></span></p>
+            </div>
+          </div><!-- End Stats Item -->
+
+          <div class="col-lg-3 col-md-6">
+            <div class="stats-item">
+              <i class="bi bi-journal-richtext"></i>
+              <span data-purecounter-start="0" data-purecounter-end="52" data-purecounter-duration="1" class="purecounter"></span>
+              <p><strong>Projects</strong> <span></span></p>
+            </div>
+          </div><!-- End Stats Item -->
+
+          <div class="col-lg-3 col-md-6">
+            <div class="stats-item">
+              <i class="bi bi-headset"></i>
+              <span data-purecounter-start="0" data-purecounter-end="1453" data-purecounter-duration="1" class="purecounter"></span>
+              <p><strong>Hours Of Support</strong> <span></span></p>
+            </div>
+          </div><!-- End Stats Item -->
+
+          <div class="col-lg-3 col-md-6">
+            <div class="stats-item">
+              <i class="bi bi-people"></i>
+              <span data-purecounter-start="0" data-purecounter-end="3" data-purecounter-duration="1" class="purecounter"></span>
+              <p><strong>Hard Workers</strong> <span></span></p>
+            </div>
+          </div><!-- End Stats Item -->
+
+        </div>
+
+      </div>
+
+    </section><!-- /Stats Section -->
+
+    <!-- Skills Section -->
+    <section id="skills" class="skills section">
+
+      <!-- Section Title -->
+      <div class="container section-title" data-aos="fade-up">
+        <h2>Skills</h2>
+        <p>Here are skill sets and areas of competence</p>
+      </div><!-- End Section Title -->
+
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+        <div class="row skills-content skills-animation">
+
+          <div class="col-lg-6">
+
+            <div class="progress">
+              <span class="skill"><span>HTML</span> <i class="val">80%</i></span>
+              <div class="progress-bar-wrap">
+                <div class="progress-bar" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
+              </div>
+            </div><!-- End Skills Item -->
+
+            <div class="progress">
+              <span class="skill"><span>CSS</span> <i class="val">70%</i></span>
+              <div class="progress-bar-wrap">
+                <div class="progress-bar" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div>
+              </div>
+            </div><!-- End Skills Item -->
+
+            <div class="progress">
+              <span class="skill"><span>JavaScript</span> <i class="val">65%</i></span>
+              <div class="progress-bar-wrap">
+                <div class="progress-bar" role="progressbar" aria-valuenow="65" aria-valuemin="0" aria-valuemax="100"></div>
+              </div>
+            </div><!-- End Skills Item -->
+
+          </div>
+
+          <div class="col-lg-6">
+
+            <div class="progress">
+              <span class="skill"><span>Python</span> <i class="val">80%</i></span>
+              <div class="progress-bar-wrap">
+                <div class="progress-bar" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
+              </div>
+            </div><!-- End Skills Item -->
+
+            <div class="progress">
+              <span class="skill"><span>SQL</span> <i class="val">70%</i></span>
+              <div class="progress-bar-wrap">
+                <div class="progress-bar" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div>
+              </div>
+            </div><!-- End Skills Item -->
+
+            <div class="progress">
+              <span class="skill"><span>Flutter</span> <i class="val">50%</i></span>
+              <div class="progress-bar-wrap">
+                <div class="progress-bar" role="progressbar" aria-valuenow="55" aria-valuemin="0" aria-valuemax="100"></div>
+              </div>
+            </div><!-- End Skills Item -->
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section><!-- /Skills Section -->
+
+     <!-- Resume Section -->
+    <section id="resume" class="resume section">
+
+      <!-- Section Title -->
+      <div class="container section-title" data-aos="fade-up">
+        <h2>Resume</h2>
+        <p>Experienced and effective Software Developer & Database Administrator, bringing forth valuable industry experience and a passion for software development and database management. Result-oriented with a proven track record of improving the management information system of a company and maximizing opportunities for financial growth. Adept in analytical thinking, strategic planning, leadership, and building relationships with business partners.</p>
+      </div><!-- End Section Title -->
+
+      <div class="container">
+
+        <div class="row">
+
+          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
+            <h3 class="resume-title">Summary</h3>
+
+            <div class="resume-item pb-0">
+              <h4>Oladimeji Sanni</h4>
+              <p><em>Innovative and deadline-driven Software Engineer with 12+ years of experience designing and developing user-oriented automated solutions from initial concept to final, effective deliverable.</em></p>
+              <ul>
+                <li>Lagos State, Nigeria.</li>
+                <li>(+234) 812-749 7918</li>
+                <li>oladimejisanni@ymail.com</li>
+              </ul>
+            </div><!-- Edn Resume Item -->
+
+            <h3 class="resume-title">Education</h3>
+            <div class="resume-item">
+              <h4>National Diploma in Computer Science</h4>
+              <h5>2006 - 2008</h5>
+              <p><em>Federal  Polytechnic Kaura Namoda, Nigeria </em></p>
+<!--              <p>Qui deserunt veniam. Et sed aliquam labore tempore sed quisquam iusto autem sit. Ea vero voluptatum qui ut dignissimos deleniti nerada porti sand markend</p>-->
+            </div><!-- Edn Resume Item -->
+
+            <div class="resume-item">
+              <h4>Higher National Diploma in Computer Science</h4>
+              <h5>2010 - 2012</h5>
+              <p><em>Federal  Polytechnic Mubi, Nigeria </em></p>
+<!--              <p>Quia nobis sequi est occaecati aut. Repudiandae et iusto quae reiciendis et quis Eius vel ratione eius unde vitae rerum voluptates asperiores voluptatem Earum molestiae consequatur neque etlon sader mart dila</p>-->
+            </div><!-- Edn Resume Item -->
+
+            <h3 class="resume-title">Tech Training</h3>
+            <div class="resume-item">
+              <h4>Trainee</h4>
+              <h5>2020 - 2021</h5>
+              <p><em>NBI Institutes & Technologies</em></p>
+              <ul>
+                <li>Effectively trained in mobile app (Flutter)</li>
+                <li>Trained as a full-stack web programmer.(React JS)</li>
+              </ul>
+<!--              <p>Qui deserunt veniam. Et sed aliquam labore tempore sed quisquam iusto autem sit. Ea vero voluptatum qui ut dignissimos deleniti nerada porti sand markend</p>-->
+            </div><!-- Edn Resume Item -->
+
+            <div class="resume-item">
+              <h4>Trainee</h4>
+              <h5>2004 - 2006</h5>
+              <p><em>HEPHZIT TECHNOLOGY</em></p>
+              <ul>
+                <li>Effectively trained in web programming (PYTHON, PHP & MySQL)</li>
+                <li>Trained as a full-stack web programmer.</li>
+              </ul>
+<!--              <p>Quia nobis sequi est occaecati aut. Repudiandae et iusto quae reiciendis et quis Eius vel ratione eius unde vitae rerum voluptates asperiores voluptatem Earum molestiae consequatur neque etlon sader mart dila</p>-->
+            </div><!-- Edn Resume Item -->
+
+            <h3 class="resume-title">National Youth Service Corp</h3>
+            <div class="resume-item">
+              <h4>Youth Corp</h4>
+              <h5>2014 - 2015</h5>
+              <p><em>Katsina State University</em></p>
+              <ul>
+                <li>Observed the 1-year mandatory Youth Service in Katsina State.</li>
+                <li>Primary assignment observed at Katsina State University at MIS department.</li>
+                <li>Involved and played a significant role in the student admission and registration process.</li>
+                <li>Contributed immensely to the social welfare programs targeted at the development of the host community within a year.</li>
+              </ul>
+<!--              <p>Qui deserunt veniam. Et sed aliquam labore tempore sed quisquam iusto autem sit. Ea vero voluptatum qui ut dignissimos deleniti nerada porti sand markend</p>-->
+            </div><!-- Edn Resume Item -->
+
+
+          </div>
+
+          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="200">
+            <h3 class="resume-title">Professional Experience</h3>
+            <div class="resume-item">
+              <h4>Software Engineer</h4>
+              <h5>August 2018 – 2022</h5>
+              <p><em>ECALPEMOS TECHNOLOGIES, Kaduna, Nigeria</em></p>
+              <ul>
+                <li>Worked cross-functionally with other senior Software Engineers to build one of the most connected and seamless payment networks in Nigeria, which accepts all relevant payment methods.</li>
+                <li>Design, develop, and maintain solution-oriented computer software for organizations.</li>
+                <li>Promoted four diverse software and web-based products across three industries- banking, insurance, and investor relations.</li>
+                <li>Identified and gathered user requirements, defined system functionality, and developed software applications.</li>
+                <li>Play a critical role in the deployment, the eventual system change, and subsequent maintenance of the new improved system.</li>
+              </ul>
+            </div><!-- Edn Resume Item -->
+
+            <div class="resume-item">
+              <h4>Data Analyst & Database Administrator</h4>
+              <h5>2015– 2018</h5>
+              <p><em>CELLULANT NIGERIA LIMITED, Abuja, Nigeria</em></p>
+              <ul>
+                <li>Design an effective and efficient Database Management System.</li>
+                <li>Direct and perform all data collection and analysis activities to provide valuable insights.</li>
+                <li>Set up the IT infrastructure to allow applications to access databases</li>
+                <li>Establish policies and procedures about the database's management, security, and maintenance.</li>
+                <li>Generated reports and presented findings to a management team to aid decision-making.</li>
+                <li>Responsible for data visualization, statistical analysis, and predictive modeling.</li>
+                <li>Conduct business analysis to deploy customized solutions for prospective clients.</li>
+                <li>Represent the company at conferences, meetings, and industry events.</li>
+                <li>Leverage new opportunities via the execution of new business project.</li>
+                <li>Assist in marketing strategy development for national and regional divisions.</li>
+                <li>Establish relationships with potential clients and facilitate integration with partner’s service solutions</li>
+                <li></li>
+              </ul>
+            </div><!-- Edn Resume Item -->
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section><!-- /Resume Section -->
+
+    <!-- Services Section -->
+    <section id="services" class="services section">
+
+      <!-- Section Title -->
+      <div class="container section-title" data-aos="fade-up">
+        <h2>Services</h2>
+        <p>My services are best of its kind with proven problem solving capabilities at its best geared towards drive for pragmatic and reliable solution. Software development
+            and global App that is widely acceptable all over the world.</p>
+      </div><!-- End Section Title -->
+
+      <div class="container">
+
+        <div class="row gy-4">
+
+          <div class="col-lg-4 col-md-6 service-item d-flex" data-aos="fade-up" data-aos-delay="100">
+            <div class="icon flex-shrink-0"><i class="bi bi-briefcase"></i></div>
+            <div>
+              <h4 class="title">Full-Stack Development</h4>
+              <p class="description">I create powerful web applications from scratch, handling both the client and server side portions of web applications.</p>
+            </div>
+          </div>
+          <!-- End Service Item:  in a professional manner. I work on the frontend, backend, database, and debugging of web applications or websites. -->
+
+          <div class="col-lg-4 col-md-6 service-item d-flex" data-aos="fade-up" data-aos-delay="200">
+            <div class="icon flex-shrink-0"><img src="{{url_for('static', filename='assets/img/soft.png')}}" width="40px" height="40px"></div>
+            <div>
+              <h4 class="title">Software Engineering</h4>
+              <p class="description">I apply the engineering design process to develop software application for improved productivity and efficiency.</p>
+            </div>
+          </div><!-- End Service Item -->
+
+          <div class="col-lg-4 col-md-6 service-item d-flex" data-aos="fade-up" data-aos-delay="300">
+            <div class="icon flex-shrink-0"><i class="bi bi-bar-chart"></i></div>
+            <div>
+              <h4 class="title">Data Analytics</h4>
+              <p class="description">In a systematic approach, I transform raw data into valuable insights putting into use one of the most powerful tools.</p>
+            </div>
+          </div><!-- End Service Item -->
+
+          <div class="col-lg-4 col-md-6 service-item d-flex" data-aos="fade-up" data-aos-delay="400">
+            <div class="icon flex-shrink-0"><img src="{{url_for('static', filename='assets/img/db.png')}}" width="30px" height="30px"></div>
+            <div>
+              <h4 class="title">Database Management</h4>
+              <p class="description">I design a system that manage and organize data in a structured manner, as well as query and manage the security and access controls for that database.</p>
+            </div>
+          </div><!-- End Service Item -->
+
+          <div class="col-lg-4 col-md-6 service-item d-flex" data-aos="fade-up" data-aos-delay="500">
+            <div class="icon flex-shrink-0"><img src="{{url_for('static', filename='assets/img/api.png')}}" width="40px" height="40px"></div>
+            <div>
+              <h4 class="title">API</h4>
+              <p class="description">I create collection of communication protocols and subroutines used by various programs to communicate between them.</p>
+            </div>
+          </div><!-- End Service Item -->
+
+          <div class="col-lg-4 col-md-6 service-item d-flex" data-aos="fade-up" data-aos-delay="600">
+            <div class="icon flex-shrink-0"><img src="{{url_for('static', filename='assets/img/mobile.png')}}" width="40px" height="40px"></div>
+            <div>
+              <h4 class="title">Mobile App</h4>
+              <p class="description">I develop computer program or software applications specifically for use on mobile devices, such as smartphones and tablets.</p>
+            </div>
+          </div><!-- End Service Item -->
+
+        </div>
+
+      </div>
+
+    </section><!-- /Services Section -->
+
+      <section id="projects" class="portfolio section">
+
+      <!-- Section Title -->
+      <div class="container section-title" data-aos="fade-up">
+        <h2>Projects</h2>
+        <p>Here are some of my recent project which has generated remarkable reviews and quite a handful referral.</p>
+      </div><!-- End Section Title -->
+
+      <div class="container">
+
+        <div class="isotope-layout" data-default-filter="*" data-layout="masonry" data-sort="original-order">
+
+<!--          <ul class="portfolio-filters isotope-filters" data-aos="fade-up" data-aos-delay="100">-->
+<!--            <li data-filter="*" class="filter-active">All</li>-->
+<!--            <li data-filter=".filter-app">App</li>-->
+<!--            <li data-filter=".filter-product">Product</li>-->
+<!--            <li data-filter=".filter-branding">Branding</li>-->
+<!--            <li data-filter=".filter-books">Books</li>-->
+<!--          </ul>&lt;!&ndash; End Portfolio Filters &ndash;&gt;-->
+
+          <div class="row gy-4 isotope-container" data-aos="fade-up" data-aos-delay="200">
+
+            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-app">
+              <div class="portfolio-content h-100">
+                <img src="{{url_for('static', filename='assets/img/portfolio/essemm-site.png')}}" class="img-fluid" alt="">
+                <div class="portfolio-info">
+<!--                  <h4></h4>-->
+                  <p>EssEmm College Of Nursing Sciences</p>
+                  <a href="{{url_for('static', filename='assets/img/portfolio/essemm-site.png')}}" title="App 1" data-gallery="portfolio-gallery-app" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+<!--                  <a href="portfolio-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>-->
+                </div>
+              </div>
+            </div><!-- End Portfolio Item -->
+
+            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-product">
+              <div class="portfolio-content h-100">
+                <img src="{{url_for('static', filename='assets/img/portfolio/bisket.png')}}" class="img-fluid" alt="">
+                <div class="portfolio-info">
+<!--                  <h4></h4>-->
+                  <p>Point Of Sale</p>
+                  <a href="{{url_for('static', filename='assets/img/portfolio/bisket.png')}}" title="Product 1" data-gallery="portfolio-gallery-product" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+<!--                  <a href="portfolio-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>-->
+                </div>
+              </div>
+            </div><!-- End Portfolio Item -->
+
+            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-branding">
+              <div class="portfolio-content h-100">
+                <img src="{{url_for('static', filename='assets/img/portfolio/cbt-app.png')}}" class="img-fluid" alt="">
+                <div class="portfolio-info">
+<!--                  <h4></h4>-->
+                  <p>CBT Application</p>
+                  <a href="{{url_for('static', filename='assets/img/portfolio/cbt-app.png')}}" title="Branding 1" data-gallery="portfolio-gallery-branding" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+<!--                  <a href="portfolio-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>-->
+                </div>
+              </div>
+            </div><!-- End Portfolio Item -->
+
+            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-books">
+              <div class="portfolio-content h-100">
+                <img src="{{url_for('static', filename='assets/img/portfolio/e-commerce.png')}}" class="img-fluid" alt="">
+                <div class="portfolio-info">
+<!--                  <h4></h4>-->
+                  <p>E-Commerce</p>
+                  <a href="{{url_for('static', filename='assets/img/portfolio/e-commerce.png')}}" title="Branding 1" data-gallery="portfolio-gallery-book" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+<!--                  <a href="portfolio-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>-->
+                </div>
+              </div>
+            </div><!-- End Portfolio Item -->
+
+            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-app">
+              <div class="portfolio-content h-100">
+                <img src="{{url_for('static', filename='assets/img/portfolio/admin-dashboard.png')}}" class="img-fluid" alt="">
+                <div class="portfolio-info">
+<!--                  <h4></h4>-->
+                  <p>Admin Dashboard</p>
+                  <a href="{{url_for('static', filename='assets/img/portfolio/admin-dashboard.png')}}" title="App 2" data-gallery="portfolio-gallery-app" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+<!--                  <a href="portfolio-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>-->
+                </div>
+              </div>
+            </div><!-- End Portfolio Item -->
+
+            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-product">
+              <div class="portfolio-content h-100">
+                <img src="{{url_for('static', filename='assets/img/portfolio/staff-accredit.png')}}" class="img-fluid" alt="">
+                <div class="portfolio-info">
+<!--                  <h4></h4>-->
+                  <p>Staff Accreditation System</p>
+                  <a href="{{url_for('static', filename='assets/img/portfolio/staff-accredit.png')}}" title="Product 2" data-gallery="portfolio-gallery-product" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+<!--                  <a href="portfolio-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>-->
+                </div>
+              </div>
+            </div><!-- End Portfolio Item -->
+
+<!--            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-branding">-->
+<!--              <div class="portfolio-content h-100">-->
+<!--                <img src="{{url_for('static', filename='assets/img/portfolio/branding-2.jpg')}}" class="img-fluid" alt="">-->
+<!--                <div class="portfolio-info">-->
+<!--                  <h4>Branding 2</h4>-->
+<!--                  <p>Lorem ipsum, dolor sit amet consectetur</p>-->
+<!--                  <a href="{{url_for('static', filename='assets/img/portfolio/branding-2.jpg')}}" title="Branding 2" data-gallery="portfolio-gallery-branding" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>-->
+<!--                  <a href="portfolio-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>-->
+<!--                </div>-->
+<!--              </div>-->
+<!--            </div>&lt;!&ndash; End Portfolio Item &ndash;&gt;-->
+
+<!--            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-books">-->
+<!--              <div class="portfolio-content h-100">-->
+<!--                <img src="{{url_for('static', filename='assets/img/portfolio/books-2.jpg')}}" class="img-fluid" alt="">-->
+<!--                <div class="portfolio-info">-->
+<!--                  <h4>Books 2</h4>-->
+<!--                  <p>Lorem ipsum, dolor sit amet consectetur</p>-->
+<!--                  <a href="{{url_for('static', filename='assets/img/portfolio/books-2.jpg')}}" title="Branding 2" data-gallery="portfolio-gallery-book" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>-->
+<!--                  <a href="portfolio-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>-->
+<!--                </div>-->
+<!--              </div>-->
+<!--            </div>&lt;!&ndash; End Portfolio Item &ndash;&gt;-->
+
+<!--            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-app">-->
+<!--              <div class="portfolio-content h-100">-->
+<!--                <img src="{{url_for('static', filename='assets/img/portfolio/app-3.jpg')}}" class="img-fluid" alt="">-->
+<!--                <div class="portfolio-info">-->
+<!--                  <h4>App 3</h4>-->
+<!--                  <p>Lorem ipsum, dolor sit amet consectetur</p>-->
+<!--                  <a href="{{url_for('static', filename='assets/img/portfolio/app-3.jpg')}}" title="App 3" data-gallery="portfolio-gallery-app" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>-->
+<!--                  <a href="portfolio-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>-->
+<!--                </div>-->
+<!--              </div>-->
+<!--            </div>&lt;!&ndash; End Portfolio Item &ndash;&gt;-->
+
+<!--            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-product">-->
+<!--              <div class="portfolio-content h-100">-->
+<!--                <img src="{{url_for('static', filename='assets/img/portfolio/product-3.jpg')}}" class="img-fluid" alt="">-->
+<!--                <div class="portfolio-info">-->
+<!--                  <h4>Product 3</h4>-->
+<!--                  <p>Lorem ipsum, dolor sit amet consectetur</p>-->
+<!--                  <a href="{{url_for('static', filename='assets/img/portfolio/product-3.jpg')}}" title="Product 3" data-gallery="portfolio-gallery-product" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>-->
+<!--                  <a href="portfolio-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>-->
+<!--                </div>-->
+<!--              </div>-->
+<!--            </div>&lt;!&ndash; End Portfolio Item &ndash;&gt;-->
+
+<!--            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-branding">-->
+<!--              <div class="portfolio-content h-100">-->
+<!--                <img src="{{url_for('static', filename='assets/img/portfolio/branding-3.jpg')}}" class="img-fluid" alt="">-->
+<!--                <div class="portfolio-info">-->
+<!--                  <h4>Branding 3</h4>-->
+<!--                  <p>Lorem ipsum, dolor sit amet consectetur</p>-->
+<!--                  <a href="{{url_for('static', filename='assets/img/portfolio/branding-3.jpg')}}" title="Branding 2" data-gallery="portfolio-gallery-branding" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>-->
+<!--                  <a href="portfolio-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>-->
+<!--                </div>-->
+<!--              </div>-->
+<!--            </div>&lt;!&ndash; End Portfolio Item &ndash;&gt;-->
+
+<!--            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-books">-->
+<!--              <div class="portfolio-content h-100">-->
+<!--                <img src="{{url_for('static', filename='assets/img/portfolio/books-3.jpg')}}" class="img-fluid" alt="">-->
+<!--                <div class="portfolio-info">-->
+<!--                  <h4>Books 3</h4>-->
+<!--                  <p>Lorem ipsum, dolor sit amet consectetur</p>-->
+<!--                  <a href="{{url_for('static', filename='assets/img/portfolio/books-3.jpg')}}" title="Branding 3" data-gallery="portfolio-gallery-book" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>-->
+<!--                  <a href="portfolio-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>-->
+<!--                </div>-->
+<!--              </div>-->
+<!--            </div>&lt;!&ndash; End Portfolio Item &ndash;&gt;-->
+
+          </div><!-- End Portfolio Container -->
+
+        </div>
+
+      </div>
+
+    </section><!-- /Portfolio Section -->
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="testimonials section">
+
+      <!-- Section Title -->
+      <div class="container section-title" data-aos="fade-up">
+        <h2>Testimonials</h2>
+        <p>Here are what some of my clients says about me and their reviews of the impeccable products I have deployed for them.</p>
+      </div><!-- End Section Title -->
+
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+        <div class="swiper init-swiper">
+          <script type="application/json" class="swiper-config">
+            {
+              "loop": true,
+              "speed": 600,
+              "autoplay": {
+                "delay": 5000
+              },
+              "slidesPerView": "auto",
+              "pagination": {
+                "el": ".swiper-pagination",
+                "type": "bullets",
+                "clickable": true
+              },
+              "breakpoints": {
+                "320": {
+                  "slidesPerView": 1,
+                  "spaceBetween": 40
+                },
+                "1200": {
+                  "slidesPerView": 3,
+                  "spaceBetween": 1
+                }
+              }
+            }
+          </script>
+          <div class="swiper-wrapper">
+
+            <div class="swiper-slide">
+              <div class="testimonial-item">
+                <p>
+                  <i class="bi bi-quote quote-icon-left"></i>
+                  <span>Mr Sanni was very responsive and patient with me. Customer service doesn't end upon deployment, for i receive technical support at every point in time.</span>
+                  <i class="bi bi-quote quote-icon-right"></i>
+                </p>
+                <img src="{{url_for('static', filename='assets/img/testimonials/bisket.ico')}}" class="testimonial-img" alt="">
+                <h3>BISKET TRADING VENTURES</h3>
+                <h4>Abeokuta, Ogun State</h4>
+              </div>
+            </div><!-- End testimonial item -->
+
+            <div class="swiper-slide">
+              <div class="testimonial-item">
+                <p>
+                  <i class="bi bi-quote quote-icon-left"></i>
+                  <span>Patience and problem solving skills are the core attributes of the Mr OLadimeji Sanni. He is very thorough and detailed in his choosen career path.</span>
+                  <i class="bi bi-quote quote-icon-right"></i>
+                </p>
+                <img src="{{url_for('static', filename='assets/img/testimonials/essemm-college.png')}}" class="testimonial-img" alt="">
+                <h3><a href="https://essemmconskt.edu.ng" target="_blank">ESSEMM COLLEGE OF NURSING SCIENCES</a></h3>
+                <h4>Katsina Metropolis, Katsina State</h4>
+              </div>
+            </div><!-- End testimonial item -->
+
+
+            <div class="swiper-slide">
+              <div class="testimonial-item">
+                <p>
+                  <i class="bi bi-quote quote-icon-left"></i>
+                  <span>Mr Sanni did a great job with our Inventory Management System. From conceptualization to design and final delivery.</span>
+                  <i class="bi bi-quote quote-icon-right"></i>
+                </p>
+                <img src="{{url_for('static', filename='assets/img/testimonials/gbenge-3.jpg')}}" height="110px" class="testimonial-img" alt="">
+                <h3>Gbenga Oyinlola</h3>
+                <h4>Entrepreneur</h4>
+              </div>
+            </div><!-- End testimonial item -->
+
+          </div>
+          <div class="swiper-pagination"></div>
+        </div>
+
+      </div>
+
+
+    </section><!-- /Testimonials Section -->
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact section">
+
+      <!-- Section Title -->
+      <div class="container section-title" data-aos="fade-up">
+        <h2>Contact</h2>
+        <p>My contact section is such that it is open and responsive to potential clients wherever they may be across the globe. Once the contact form is interacted with, I respond in a giffy. Fill the contact form and see how I swing into quick response and keep a friendly correspondence with you</p>
+      </div><!-- End Section Title -->
+
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+        <div class="row gy-4">
+
+          <div class="col-lg-5">
+
+            <div class="info-wrap">
+              <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="200">
+                <i class="bi bi-geo-alt flex-shrink-0"></i>
+                <div>
+                  <h3>Address</h3>
+                  <p>56 Raji Rasak Street, Iyana-Ipaja. Lagos State. Nigeria</p>
+                </div>
+              </div><!-- End Info Item -->
+
+              <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="300">
+                <i class="bi bi-telephone flex-shrink-0"></i>
+                <div>
+                  <h3>Call Us</h3>
+                  <p>+234 812 749 7918</p>
+                </div>
+              </div><!-- End Info Item -->
+
+              <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="400">
+                <i class="bi bi-envelope flex-shrink-0"></i>
+                <div>
+                  <h3>Email Us</h3>
+                  <p>oladimejisanni@ymail.com</p>
+                </div>
+              </div><!-- End Info Item -->
+
+              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3963.18691751663!2d3.290394974083119!3d6.623689393370573!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x103b90e4c8c6ebcf%3A0xa5024f3379e96c4a!2sRaji%20Rasaki%20St%2C%20Pleasure%2FOke-Odo%20102213%2C%20Lagos!5e0!3m2!1sen!2sng!4v1727864536294!5m2!1sen!2sng" frameborder="0" style="border:0; width: 100%; height: 270px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+          </div>
+
+          <div class="col-lg-7">
+            <form action="{{url_for('bp.index')}}" method="post" class="email-form" data-aos="fade-up" data-aos-delay="200" onsubmit="return validateForm()">
+              <div class="row gy-4">
+
+                <div class="col-md-6">
+                  <label for="name-field" class="pb-2">Your Name</label>
+                  <input type="text" name="name" id="name-field" class="form-control">
+                </div>
+
+                <div class="col-md-6">
+                  <label for="email-field" class="pb-2">Your Email</label>
+                  <input type="email" class="form-control" name="email" id="email-field">
+                </div>
+
+                <div class="col-md-12">
+                  <label for="subject-field" class="pb-2">Subject</label>
+                  <input type="text" class="form-control" name="subject" id="subject-field">
+                </div>
+
+                <div class="col-md-12">
+                  <label for="message-field" class="pb-2">Message</label>
+                  <textarea class="form-control" name="message" rows="10" id="message-field"></textarea>
+                </div>
+
+                <div class="col-md-12 text-center">
+                  <button type="submit">Send Message</button>
+                </div>
+
+              </div>
+            </form>
+          </div><!-- End Contact Form -->
+
+        </div>
+
+      </div>
+
+    </section><!-- /Contact Section -->
+
+  </main>
+
+  <footer id="footer" class="footer position-relative">
+
+    <div class="container">
+      <div class="copyright text-center ">
+        <p>© <span>Copyright</span> <strong class="px-1 sitename">Oladimeji Sanni</strong> <span>All Rights Reserved</span></p>
+      </div>
+      <div class="credits">
+        Designed by <a href="https://digitsinfotech.com/" target="_blank">DigitsInfotech</a>
+      </div>
+    </div>
+
+  </footer>
+
+  <!-- Scroll Top -->
+  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Preloader -->
+  <div id="preloader"></div>
+
+  <!-- Vendor JS Files -->
+  <script src="{{url_for('static', filename='assets/vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
+  <script src="{{url_for('static', filename='assets/vendor/email-form/validate.js')}}"></script>
+  <script src="{{url_for('static', filename='assets/vendor/aos/aos.js')}}"></script>
+  <script src="{{url_for('static', filename='assets/vendor/typed.js/typed.umd.js')}}"></script>
+  <script src="{{url_for('static', filename='assets/vendor/purecounter/purecounter_vanilla.js')}}"></script>
+  <script src="{{url_for('static', filename='assets/vendor/waypoints/noframework.waypoints.js')}}"></script>
+  <script src="{{url_for('static', filename='assets/vendor/glightbox/js/glightbox.min.js')}}"></script>
+  <script src="{{url_for('static', filename='assets/vendor/imagesloaded/imagesloaded.pkgd.min.js')}}"></script>
+  <script src="{{url_for('static', filename='assets/vendor/isotope-layout/isotope.pkgd.min.js')}}"></script>
+  <script src="{{url_for('static', filename='assets/vendor/swiper/swiper-bundle.min.js')}}"></script>
+
+  <!-- Main JS File -->
+  <script src="{{url_for('static', filename='assets/js/main.js')}}"></script>
+
+
+<script type="text/javascript">
+    window.setTimeout("document.getElementById('successMessage').style.display='none';", 7000);
+</script>
+
+<script type="text/javascript">
+    window.setTimeout("document.getElementById('errorMessage').style.display='none';", 7000);
+</script>
+
+</body>
+
+{% endblock %}
