@@ -65,7 +65,7 @@ def index():
             new_contact = Contact(name, email, subject, message)
             db.session.add(new_contact)
             db.session.commit()
-            msg = 'Thank you for contacting us. Your message has been received'
+            msg = 'Thank you for contacting us. Your message has been received. Pls check your email'
             flash(f"{msg}", "success")
             mail_service = send_mail(name, email, subject)
             print(mail_service)

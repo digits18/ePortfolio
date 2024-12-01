@@ -86,13 +86,13 @@ h6 {
 }
 
 #errorMessage{
-    width: 300px;
+    width: 400px;
     height: 100px;
     margin-left: 730px;
 }
 
 #successMessage{
-    width: 300px;
+    width: 400px;
     height: 100px;
     margin-left: 730px;
 }
@@ -112,12 +112,12 @@ h6 {
 /* Mobile Flash Message*/
 @media (max-width: 1199px) {
     #errorMessage{
-        width: 300px;
+        width: 400px;
         height: 100px;
         margin-left: 60px;
     }
     #successMessage{
-        width: 300px;
+        width: 400px;
         height: 100px;
         margin-left: 60px;
     }
